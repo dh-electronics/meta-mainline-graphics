@@ -17,7 +17,7 @@ S = "${WORKDIR}/git"
 DEPENDS = "libpng zlib virtual/egl spirv-headers spirv-tools glslang"
 # "amber" for vulkan
 
-inherit cmake pkgconfig python3native distro_features_check
+inherit cmake pkgconfig python3native ${@'features_check' if (d.getVar('LAYERSERIES_CORENAMES') not in ["zeus"]) else 'distro_features_check'}
 
 # depends on virtual/libgl
 REQUIRED_DISTRO_FEATURES += "opengl"
