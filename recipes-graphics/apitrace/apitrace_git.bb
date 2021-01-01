@@ -8,7 +8,7 @@ SRC_URI = " \
 	"
 UPSTREAM_CHECK_COMMITS = "1"
 
-SRCREV = "d5861c63e070d88ccd2fecaa440cc9cace1c48b6"
+SRCREV = "4a2d21fe836876e95012ffeb682010aef852b97d"
 PV = "9.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"
