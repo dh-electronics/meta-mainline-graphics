@@ -25,7 +25,7 @@ REQUIRED_DISTRO_FEATURES += "opengl"
 OECMAKE_GENERATOR = "Ninja"
 EXTRA_OECMAKE = " -DDEQP_TARGET=surfaceless -DCMAKE_BUILD_TYPE=Release "
 
-do_configure_prepend() {
+do_configure:prepend() {
     # surfaceless links against libkms and such despite not using it.
     # FIXME: make this into a patch
     sed -i '/gbm/d' ${S}/targets/surfaceless/surfaceless.cmake
@@ -64,4 +64,4 @@ do_install() {
 	install -m 0644 ${S}/doc/testlog-stylesheet/testlog.xsl ${D}${datadir}/deqp/tools/testlog.xsl
 }
 
-FILES_${PN} = " ${datadir}/deqp "
+FILES:${PN} = " ${datadir}/deqp "
